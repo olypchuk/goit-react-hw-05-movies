@@ -6,27 +6,27 @@ import Loader from "./Loader";
 import defaultImg from '../defaultImg.jpeg'
 const API_KEY = '2fbaf0abda7e75b14a06c1d021f41a8b'
 
-const useLoading = () => {
-  const [loading, setLoading] = useState(false)
-  useEffect(() => {
+// const useLoading = () => {
+//   const [loading, setLoading] = useState(false)
+//   useEffect(() => {
      
-    const load = async () => {
-      setLoading(true)
-      try {
+//     const load = async () => {
+//       setLoading(true)
+//       try {
 
-      } catch (error) {
-        console.log('error', error)
-      }
-      finally {
-        setLoading(false)
-      }
-    }
-      load()
-  },[])
-return loading
+//       } catch (error) {
+//         console.log('error', error)
+//       }
+//       finally {
+//         setLoading(false)
+//       }
+//     }
+//       load()
+//   },[])
+// return loading
 
 
-}
+// }
 
 
 const Cast = () => {
