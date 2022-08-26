@@ -1,18 +1,25 @@
 
-import { Link } from "react-router-dom"
 
-export const HomePage = ({ data }) => {
+import styled from "styled-components"
+import StyledContainer from "components/Container"
+import StyledLink from "components/StyledLink"
+const MainTitleStyled = styled.h1`
+text-align: center;
+`
+
+ const HomePage = ({ data }) => {
     return ( 
-        <><h1>trending today</h1>
+        <StyledContainer>
+            <MainTitleStyled>Trending today</MainTitleStyled>
         <ul>
                 {data.map(el => {
                     return <li key={el.id}>
-                        <Link to={`/movies/${el.id}`}>
+                        <StyledLink to={`/movies/${el.id}`}>
                         {el.title || el.name}
-                        </Link>
+                        </StyledLink>
                         </li>
-                })}  </ul></>)
+                })}  </ul></StyledContainer>)
 }
-
+export default HomePage
 
     // {`https://image.tmdb.org/t/p/w300/${filmDetails.poster_path}`}

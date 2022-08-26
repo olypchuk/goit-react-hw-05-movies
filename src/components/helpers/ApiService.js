@@ -1,5 +1,6 @@
 const API_KEY = '2fbaf0abda7e75b14a06c1d021f41a8b'
-const BASE_URL='https://api.themoviedb.org/3'
+const BASE_URL = 'https://api.themoviedb.org/3'
+
 export const fetchMovieById = async (value) => {
     try {
         const res = await fetch(`${BASE_URL}/movie/${value}?api_key=${API_KEY}&language=en-US`)
@@ -51,4 +52,16 @@ return response
           console.log('error :>> ', error);
 }
 
+}
+export const fetchByQuery =async(value) => {
+     try {
+        const res = await fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${value}&language=en-US`)
+        if (!res.ok) {
+          throw new Error(res.status);
+      }
+    const response = await res.json()
+    return response 
+    } catch (error) {
+        console.log('error :>> ', error);
+    }
 }
