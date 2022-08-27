@@ -9,7 +9,7 @@ const NotFoundPage = lazy(() => import("pages/NotFoundPage"));
 const MoviesPage=lazy(()=>import( "pages/MoviePages"))
 const FilmDetailsView=lazy(()=>import("./FilmDetailsView"))
 const Cast = lazy(() => import("./Cast"))
-// const Reviews =lazy(()=>import("./Reviews"))
+const Reviews =lazy(()=>import("./Reviews"))
 
 const FilmRoutes = () => {
     const [data, setData] = useState([])
@@ -35,7 +35,7 @@ const FilmRoutes = () => {
         <Route path='/movies' element={<MoviesPage />} />
         <Route path='/movies/:filmId' element={<FilmDetailsView />}>
           <Route path='cast' element={<Cast />} />
-          {/* <Route path ='reviews' element={<Reviews/>}/> */}
+          <Route path ='reviews' element={<Reviews/>}/>
           </Route>
         <Route path="*" element={<NotFoundPage/>}/>
     </Route>
