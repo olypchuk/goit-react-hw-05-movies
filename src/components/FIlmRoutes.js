@@ -3,7 +3,7 @@ import { Route, Routes, Outlet } from "react-router-dom"
 import SharedLayout from "./SharedLayout";
 import { fetchAllVideo } from "./helpers/ApiService";
 import Loader from "./Loader";
-import Reviews from "./Reviews";
+// import Reviews from "./Reviews";
 const HomePage=lazy(()=>import("pages/HomePage"))
 const NotFoundPage = lazy(() => import("pages/NotFoundPage"));
 const MoviesPage=lazy(()=>import( "pages/MoviePages"))
@@ -35,7 +35,7 @@ const FilmRoutes = () => {
         <Route path='/movies' element={<MoviesPage />} />
         <Route path='/movies/:filmId' element={<FilmDetailsView />}>
           <Route path='cast' element={<Cast />} />
-          <Route path ='reviews' element={<Reviews/>}/>
+          {/* <Route path ='reviews' element={<Reviews/>}/> */}
           </Route>
         <Route path="*" element={<NotFoundPage/>}/>
     </Route>
