@@ -3,13 +3,13 @@ import { Route, Routes, Outlet } from "react-router-dom"
 import SharedLayout from "./SharedLayout";
 import { fetchAllVideo } from "./helpers/ApiService";
 import Loader from "./Loader";
-
+import Reviews from "./Reviews";
 const HomePage=lazy(()=>import("pages/HomePage"))
 const NotFoundPage = lazy(() => import("pages/NotFoundPage"));
 const MoviesPage=lazy(()=>import( "pages/MoviePages"))
 const FilmDetailsView=lazy(()=>import("./FilmDetailsView"))
 const Cast = lazy(() => import("./Cast"))
-const Reviews =lazy(()=>import("./Reviews"))
+// const Reviews =lazy(()=>import("./Reviews"))
 
 const FilmRoutes = () => {
     const [data, setData] = useState([])
