@@ -42,20 +42,23 @@ export const fetchReviews= async (value) => {
 }
 export const fetchAllVideo = async () => {
 try {
-  const res = await fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}`)
+    const res = await fetch(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}`)
+
      if (!res.ok) {
           throw new Error(res.status);
       }
-const response = await res.json()
+    const response = await res.json()
+  
 return response
 } catch (error) {
-          console.log('error :>> ', error);
+    console.log('error :>> ', error);
 }
 
 }
-export const fetchByQuery =async(value) => {
+export const fetchByQuery =async(query) => {
      try {
-        const res = await fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${value}&language=en-US`)
+ 
+         const res=await fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}&language=en-US&page=1&include_adult=false`)
         if (!res.ok) {
           throw new Error(res.status);
       }

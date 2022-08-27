@@ -2,9 +2,10 @@ import { RotatingLines } from 'react-loader-spinner';
 import styled from 'styled-components';
 
 const ContainerLoader=styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `
 const Loader = () => {
   return (
@@ -13,7 +14,8 @@ const Loader = () => {
   strokeWidth="5"
   animationDuration="0.75"
   width="96"
-  visible={true}
+      visible={true}
+ 
     /></ContainerLoader >
     )}
   

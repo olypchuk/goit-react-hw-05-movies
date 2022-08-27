@@ -1,59 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { fetchCast } from "./helpers/ApiService";
 import { useParams } from "react-router-dom";
-
+import useFetchAndLoading from "./hooks/useFetchAndLoading";
 import Loader from "./Loader";
 import defaultImg from '../defaultImg.jpeg'
+
 const API_KEY = '2fbaf0abda7e75b14a06c1d021f41a8b'
-
-// const useLoading = () => {
-//   const [loading, setLoading] = useState(false)
-//   useEffect(() => {
-     
-//     const load = async () => {
-//       setLoading(true)
-//       try {
-
-//       } catch (error) {
-//         console.log('error', error)
-//       }
-//       finally {
-//         setLoading(false)
-//       }
-//     }
-//       load()
-//   },[])
-// return loading
-
-
-// }
 
 
 const Cast = () => {
-  const { filmId } = useParams()
-  const [cast, setCast] = useState(null)
-  const [loading, setLoading] = useState(false)
-  
-  useEffect(() => {
-  setLoading(true)  
-      const fetch = async() => {
-         
-    try {
-      const res = await fetchCast(filmId)
-      setCast(res)
-    } catch (error) {
-      console.log('error', error)
-    }
-    finally {
-       setLoading(false)
-    }
-    }
-   
+const { filmId } = useParams()
+const {data,isLoading}=useFetchAndLoading(fetchCast,filmId)
 
-   fetch()
-  }, [filmId])
-
-const casts=cast?.cast.map(el => {
+const casts=data?.cast?.map(el => {
         return <li key={el.id}>
           <div>
             {el.profile_path ?
@@ -66,10 +25,11 @@ const casts=cast?.cast.map(el => {
 })
   
   return (<>
-    {loading && <Loader />}
-    <ul>{cast?.cast?.length === 0
+    {isLoading && <Loader />}
+    <ul>{data?.cast?.length === 0
       ?<div>We do not have any  cast on this movie</div>
       :casts}
-    </ul></>)
+    </ul>
+  </>)
 }
 export default Cast

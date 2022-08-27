@@ -6,6 +6,7 @@ import Loader from "components/Loader";
 import styled from "styled-components";
 import StyledContainer from "components/Container";
 import StyledLink from "components/StyledLink";
+
 const StyledInput = styled.input`
 
     margin: 0 auto;
@@ -64,9 +65,8 @@ const MoviesPage = () => {
     <label htmlFor="search"></label>
         <StyledInput type="text" name="search" id="search" required />
         <StyledButton type="submit">search</StyledButton>
-      </Form>
+      </Form>{loading&&<Loader/>}
       <ul>
-        {loading&&<Loader/>}
         {filmList?.length!==0 && filmList?.map(( {title,id} ) => (<li key={id}><StyledLink state={{from:location}} to={`/movies/${id}`}>{title}</StyledLink></li>))}
         </ul>
         </StyledContainer>
